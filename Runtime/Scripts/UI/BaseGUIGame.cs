@@ -48,9 +48,9 @@ namespace StinkySteak.NetcodeBenchmark
 
         protected virtual void StartClient() { }
         protected virtual void StartServer() { }
-        private void StressTest_1() => StressTest(_test_1);
-        private void StressTest_2() => StressTest(_test_2);
-        private void StressTest_3() => StressTest(_test_3);
+        protected void StressTest_1() => StressTest(_test_1);
+        protected void StressTest_2() => StressTest(_test_2);
+        protected void StressTest_3() => StressTest(_test_3);
         protected virtual void StressTest(StressTestEssential stressTest) { }
 
 
