@@ -33,8 +33,10 @@ namespace StinkySteak.NetcodeBenchmark
 
         private void Start()
         {
+            MonoStart();
             Initialize();
         }
+
 
         protected virtual void Initialize()
         {
@@ -56,12 +58,16 @@ namespace StinkySteak.NetcodeBenchmark
 
         private void LateUpdate()
         {
+            MonoLateUpdate();
+
             if (!_timerUpdateLatencyText.IsExpiredOrNotRunning()) return;
 
             UpdateNetworkStats();
             _timerUpdateLatencyText = SimulationTimer.SimulationTimer.CreateFromSeconds(_updateLatencyTextInterval);
         }
 
+        protected virtual void MonoLateUpdate() { }
+        protected virtual void MonoStart() { }
         protected virtual void UpdateNetworkStats() { }
     }
 }
