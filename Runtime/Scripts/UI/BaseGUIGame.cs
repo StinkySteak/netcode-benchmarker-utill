@@ -24,6 +24,9 @@ namespace StinkySteak.NetcodeBenchmark
         [Header("Stress Test 3: Move Wander")]
         [SerializeField] protected StressTestEssential _test_3;
 
+        [Header("Stress Test 4: Self Networked Move Wander")]
+        [SerializeField] protected StressTestEssential _test_4;
+
         [System.Serializable]
         public struct StressTestEssential
         {
@@ -56,6 +59,7 @@ namespace StinkySteak.NetcodeBenchmark
             _test_1.ButtonExecute.onClick.AddListener(StressTest_1);
             _test_2.ButtonExecute.onClick.AddListener(StressTest_2);
             _test_3.ButtonExecute.onClick.AddListener(StressTest_3);
+            _test_4.ButtonExecute.onClick.AddListener(StressTest_4);
 
             _buttonStartServer.onClick.AddListener(StartServer);
             _buttonStartClient.onClick.AddListener(StartClient);
@@ -66,6 +70,8 @@ namespace StinkySteak.NetcodeBenchmark
         protected void StressTest_1() => StressTest(_test_1);
         protected void StressTest_2() => StressTest(_test_2);
         protected void StressTest_3() => StressTest(_test_3);
+        protected void StressTest_4() => StressTest(_test_4);
+
         protected virtual void StressTest(StressTestEssential stressTest) { }
 
 
