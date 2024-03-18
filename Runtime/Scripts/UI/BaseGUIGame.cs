@@ -75,6 +75,11 @@ namespace StinkySteak.NetcodeBenchmark
         protected virtual void StressTest(StressTestEssential stressTest) { }
 
 
+        private void Update()
+        {
+            MonoUpdate();
+        }
+
         private void LateUpdate()
         {
             MonoLateUpdate();
@@ -87,7 +92,7 @@ namespace StinkySteak.NetcodeBenchmark
 
         protected virtual void MonoLateUpdate() { }
         protected virtual void MonoStart() { }
-
+        protected virtual void MonoUpdate() { }
         protected virtual void UpdateNetworkStats() { }
 
         protected void RefigureHeadlessServerProperty()
