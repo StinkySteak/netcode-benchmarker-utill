@@ -32,7 +32,7 @@ namespace StinkySteak.NetcodeBenchmark
             float frameTime = _runner.GetAverageFrameTime();
 
             _stringBuilder.Clear();
-            _stringBuilder.AppendFormat("Average FrameTime: {0}ms. Connected Clients: {1}\n", frameTime, connectedClients);
+            _stringBuilder.AppendFormat("Unity Time: {0} Average FrameTime: {1}ms. Connected Clients: {2}\n", Time.time, frameTime, connectedClients);
 
             File.AppendAllText(_filePath, _stringBuilder.ToString());
 
