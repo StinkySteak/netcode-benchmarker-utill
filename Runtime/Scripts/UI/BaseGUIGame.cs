@@ -43,10 +43,6 @@ namespace StinkySteak.NetcodeBenchmark
             public StressTestEssential Test;
         }
 
-        private const string ARGS_SERVER_TEST_1 = "-test1";
-        private const string ARGS_SERVER_TEST_2 = "-test2";
-        private const string ARGS_SERVER_TEST_3 = "-test3";
-
         private void Start()
         {
             MonoStart();
@@ -97,31 +93,38 @@ namespace StinkySteak.NetcodeBenchmark
 
         protected void RefigureHeadlessServerProperty()
         {
-            bool isTest1 = HeadlessUtils.HasArg(ARGS_SERVER_TEST_1);
-            bool isTest2 = HeadlessUtils.HasArg(ARGS_SERVER_TEST_2);
-            bool isTest3 = HeadlessUtils.HasArg(ARGS_SERVER_TEST_3);
+            bool isTest1 = HeadlessUtils.HasArg(HeadlessArguments.SERVER_TEST_1);
+            bool isTest2 = HeadlessUtils.HasArg(HeadlessArguments.SERVER_TEST_2);
+            bool isTest3 = HeadlessUtils.HasArg(HeadlessArguments.SERVER_TEST_3);
+            bool isTest4 = HeadlessUtils.HasArg(HeadlessArguments.SERVER_TEST_4);
+
+            float delaySpawnTest = 1f;
+
+            _headlessServerProperty.TimerActivateTest = SimulationTimer.SimulationTimer.CreateFromSeconds(delaySpawnTest);
 
             if (isTest1)
             {
-                _headlessServerProperty.TimerActivateTest = SimulationTimer.SimulationTimer.CreateFromSeconds(1f);
                 _headlessServerProperty.Test = _test_1;
                 return;
             }
 
             if (isTest2)
             {
-                _headlessServerProperty.TimerActivateTest = SimulationTimer.SimulationTimer.CreateFromSeconds(1f);
                 _headlessServerProperty.Test = _test_2;
                 return;
             }
 
             if (isTest3)
             {
-                _headlessServerProperty.TimerActivateTest = SimulationTimer.SimulationTimer.CreateFromSeconds(1f);
                 _headlessServerProperty.Test = _test_3;
                 return;
             }
-        }
 
+            if (isTest4)
+            {
+                _headlessServerProperty.Test = _test_4;
+                return;
+            }
+        }
     }
 }
